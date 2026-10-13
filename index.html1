@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EARTH DATA NETWORK | Buy Data</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5fa;color:#15243b}
+header{background:#10243d;color:white;padding:24px 16px;text-align:center}
+.logo{font-size:24px;font-weight:800;color:#f4c542}
+header p{margin-bottom:0}
+nav{background:#17365b;padding:12px;text-align:center}
+nav a{color:white;margin:0 10px;text-decoration:none}
+main{max-width:650px;margin:22px auto;padding:0 14px}
+.card{background:white;padding:20px;border-radius:16px;margin-bottom:18px;box-shadow:0 3px 14px #0000000b}
+h2{margin-top:0}
+label{display:block;font-weight:bold;margin:14px 0 7px}
+select,input{width:100%;padding:13px;border:1px solid #ccd4df;border-radius:8px;font-size:16px;background:white}
+button{width:100%;padding:14px;border:0;border-radius:9px;background:#17365b;color:white;font-weight:bold;font-size:16px;margin-top:18px}
+button:active{opacity:.8}
+.networks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.networks div{background:#fff4c9;border-radius:10px;padding:13px 4px;text-align:center;font-weight:bold}
+.small{font-size:13px;color:#64748b;line-height:1.6}
+footer{text-align:center;padding:22px;background:#10243d;color:white}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🌍 EARTH DATA NETWORK</div>
+  <p>Your connection, our priority.</p>
+  <p>Affordable data bundles in Ghana</p>
+</header>
+<nav>
+  <a href="#buy">Buy Data</a>
+  <a href="#prices">Prices</a>
+  <a href="#help">Help</a>
+</nav>
+<main>
+  <section class="card">
+    <h2>Choose Your Network</h2>
+    <div class="networks">
+      <div>🟡 MTN</div>
+      <div>🔴 Telecel</div>
+      <div>🔵 AT</div>
+    </div>
+    <p class="small">Select your network and bundle below.</p>
+  </section>
+
+  <section class="card" id="buy">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <label for="network">Network</label>
+      <select id="network" required>
+        <option value="">Choose network</option>
+        <option>MTN</option>
+        <option>Telecel</option>
+        <option>AirtelTigo (AT)</option>
+      </select>
+
+      <label for="bundle">Data bundle</label>
+      <select id="bundle" required>
+        <option value="">Choose bundle</option>
+        <option value="1 GB|5">1 GB — GHS 5 (sample)</option>
+        <option value="2 GB|10">2 GB — GHS 10 (sample)</option>
+        <option value="5 GB|20">5 GB — GHS 20 (sample)</option>
+        <option value="10 GB|35">10 GB — GHS 35 (sample)</option>
+      </select>
+
+      <label for="phone">Phone number receiving data</label>
+      <input id="phone" type="tel" inputmode="tel"
+        placeholder="e.g. 0241234567" required>
+
+      <label for="customer">Customer name (optional)</label>
+      <input id="customer" type="text" placeholder="Your name">
+
+      <button type="submit">Continue to Order</button>
+    </form>
+    <p class="small">Prices shown are examples only. Confirm real supplier prices before selling.</p>
+  </section>
+
+  <section class="card" id="prices">
+    <h2>Our Services</h2>
+    <p>MTN data bundles</p>
+    <p>Telecel data bundles</p>
+    <p>AirtelTigo (AT) data bundles</p>
+  </section>
+
+  <section class="card" id="help">
+    <h2>Need Help?</h2>
+    <p>Contact our customer support for order enquiries.</p>
+    <p class="small">Add your official business contact details before publishing.</p>
+  </section>
+</main>
+<footer>
+  <strong>EARTH DATA NETWORK</strong>
+  <p>Stay connected. Stay ahead.</p>
+</footer>
+<script>
+document.getElementById("orderForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const network=document.getElementById("network").value;
+  const bundle=document.getElementById("bundle").value.split("|");
+  const phone=document.getElementById("phone").value.trim();
+  const customer=document.getElementById("customer").value.trim();
+
+  const message =
+    "EARTH DATA NETWORK ORDER\n"+
+    "Network: "+network+"\n"+
+    "Bundle: "+bundle[0]+"\n"+
+    "Sample price: GHS "+bundle[1]+"\n"+
+    "Recipient: "+phone+"\n"+
+    "Customer: "+(customer||"Not provided")+"\n\n"+
+    "Please confirm availability and payment instructions.";
+
+  alert(message+"\n\nThis is an order enquiry only. Payment and data delivery are not automated yet.");
+});
+</script>
+</body>
+</html>
